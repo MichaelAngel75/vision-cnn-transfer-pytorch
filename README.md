@@ -25,35 +25,51 @@ This project focuses on classifying landmark images using both a custom CNN (`My
 
 ---
 
-## 🔍 Key Features
+## 🔧 SageMaker Setup Instructions
 
-- **Two Models**:
-  - `MyModel`: A CNN from scratch for image classification.
-  - `get_model_transfer_learning`: ResNet/AlexNet/VGG-style transfer learning.
-- **Data Handling**:
-  - Automatic downloading and preprocessing of the [landmark image dataset](https://udacity-dlnfd.s3-us-west-1.amazonaws.com/datasets/landmark_images.zip).
-  - Normalization computed per channel using concurrency for efficiency.
-- **Training & Optimization**:
-  - Uses `OneCycleLR` (Adam) or `ReduceLROnPlateau` (SGD) schedulers.
-  - TorchScript export for model deployment compatibility.
-- **Visualization**:
-  - Confusion matrix and training loss tracking with `livelossplot`.
+These instructions are designed to help you **mimic the Udacity lab environment** on your **own AWS SageMaker instance**.
 
----
+### ✅ Step 1: Create a Compatible Python Environment
 
-## 🧪 Notebooks
+Run these commands in your SageMaker terminal or Jupyter System Terminal:
 
-| Notebook                     | Description                                  | HTML Link                   |
-|-----------------------------|----------------------------------------------|-----------------------------|
-| `transfer_learning.ipynb`   | Transfer learning using pretrained models    | ✅ [`transfer_learning.html`](./transfer_learning.html) |
-| `cnn_from_scratch.ipynb`    | Training a CNN from scratch                  | ✅ [`cnn_from_scratch.html`](./cnn_from_scratch.html) |
-| `app.ipynb`                 | TorchScript inference wrapper for prediction | ✅ [`app.html`](./app.html) |
+```bash
+conda create -n py37_env_01 python=3.7.6 -y
+source /opt/conda/etc/profile.d/conda.sh
+conda activate py37_env_01
+pip install ipykernel
+python -m ipykernel install --user --name py37_env_01 --display-name "Python 3.7.6 (py37_env_01)"
+```
 
-> ✅ Convert notebooks to HTML using `jupyter nbconvert --to html notebook.ipynb` or run `python create_submit_pkg.py`.
+Then select the new kernel **"Python 3.7.6 (py37_env_01)"** inside your Jupyter notebook UI.
 
 ---
 
-## ✅ Installation
+### 📦 Step 2: Install Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 🗂️ Step 3: Unzip Static Content
+
+If you're copying static data (e.g., datasets, checkpoints) from the Udacity workspace:
+
+```bash
+unzip landmark_images.zip
+```
+
+Or to zip it before uploading:
+
+```bash
+zip -r landmark_images.zip landmark_images/
+```
+
+---
+
+## ✅ Installation (Generic)
 
 ### 1. Clone the repository
 
@@ -62,14 +78,14 @@ git clone <your-repo-url>
 cd <your-repo-folder>
 ```
 
-### 2. Create a virtual environment (optional)
+### 2. (Optional) Create a virtual environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 ```
 
-### 3. Install requirements
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -107,10 +123,21 @@ python create_submit_pkg.py
 
 ---
 
+## 🧪 Notebooks
+
+| Notebook                     | Description                                  | HTML Link                   |
+|-----------------------------|----------------------------------------------|-----------------------------|
+| `transfer_learning.ipynb`   | Transfer learning using pretrained models    | ✅ [`transfer_learning.html`](./transfer_learning.html) |
+| `cnn_from_scratch.ipynb`    | Training a CNN from scratch                  | ✅ [`cnn_from_scratch.html`](./cnn_from_scratch.html) |
+| `app.ipynb`                 | TorchScript inference wrapper for prediction | ✅ [`app.html`](./app.html) |
+
+> Convert notebooks using `jupyter nbconvert --to html notebook.ipynb` or run `python create_submit_pkg.py`.
+
+---
+
 ## 📝 Author Notes
 
-- The project is built modularly to support easy switching between CNN and transfer learning models.
-- All tests are written using `pytest` and scoped for functional coverage of each module.
-
-
+- Modular design enables swapping models easily.
+- TorchScript support allows flexible deployment.
+- All components include `pytest` unit tests for reproducibility.
 
