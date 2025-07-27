@@ -127,9 +127,9 @@ python create_submit_pkg.py
 
 | Notebook                     | Description                                  | HTML Link                   |
 |-----------------------------|----------------------------------------------|-----------------------------|
-| `transfer_learning.ipynb`   | Transfer learning using pretrained models    | ✅ [`transfer_learning.html`](./transfer_learning.html) |
-| `cnn_from_scratch.ipynb`    | Training a CNN from scratch                  | ✅ [`cnn_from_scratch.html`](./cnn_from_scratch.html) |
-| `app.ipynb`                 | TorchScript inference wrapper for prediction | ✅ [`app.html`](./app.html) |
+| `transfer_learning.ipynb`   | Transfer learning using pretrained models    | ✅ [`transfer_learning.html`](https://github.com/MichaelAngel75/vision-cnn-transfer-pytorch/blob/main/Project-DONE/transfer_learning.ipynb) |
+| `cnn_from_scratch.ipynb`    | Training a CNN from scratch                  | ✅ [`cnn_from_scratch.html`](https://github.com/MichaelAngel75/vision-cnn-transfer-pytorch/blob/main/Project-DONE/cnn_from_scratch.ipynb) |
+| `app.ipynb`                 | TorchScript inference wrapper for prediction | ✅ [`app.html`](https://github.com/MichaelAngel75/vision-cnn-transfer-pytorch/blob/main/Project-DONE/app.ipynb) |
 
 > Convert notebooks using `jupyter nbconvert --to html notebook.ipynb` or run `python create_submit_pkg.py`.
 
